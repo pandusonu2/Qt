@@ -1,3 +1,3 @@
 Activity log
-Band Aid added with 1000 value at Sun Mar 27 06:05:40 2016.
-10 quantity of Band Aid consumed at Sun Mar 27 06:05:49 2016.
+qwe added with 123 value at Sun Mar 27 06:14:19 2016.
+0 quantity of qwe consumed at Sun Mar 27 06:14:34 2016.

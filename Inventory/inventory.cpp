@@ -27,10 +27,12 @@ void Inventory::on_addButton_clicked()
     QString name=ui->addName->text();
     QString number=ui->addValue->text();
     qint64 quantity = 0;
-    try{
+    QRegExp re("\\d*");
+    if (re.exactMatch(number))
+    {
         bool ok;
         quantity = number.toLongLong(&ok,10);
-    }catch(const char* error){
+    }else{
         display("Enter a proper number.\n");
         return;
     }
@@ -54,10 +56,12 @@ void Inventory::on_consumeButton_clicked()
         return;
     }else{
         qint64 quantity = 0;
-        try{
+        QRegExp re("\\d*");
+        if (re.exactMatch(number))
+        {
             bool ok;
             quantity = number.toLongLong(&ok,10);
-        }catch (const char* error){
+        }else{
             display("Enter a proper number.\n");
             return;
         }
@@ -67,9 +71,9 @@ void Inventory::on_consumeButton_clicked()
         }else{
             items[name] -= quantity;
         }
+        qDebug() << quantity;
     }
     QString out = number + " quantity of " + name + " consumed at " + times() + ".\n";
-
     display(out);
     Write(out);
 }
